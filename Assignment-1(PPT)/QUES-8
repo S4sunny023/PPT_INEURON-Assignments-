@@ -1,0 +1,22 @@
+def findErrorNums(nums):
+    n = len(nums)
+    seen = set()
+    duplicate_num = 0
+    missing_num = 0
+    
+    for num in nums:
+        if num in seen:
+            duplicate_num = num
+        else:
+            seen.add(num)
+    
+    expected_sum = n * (n + 1) // 2
+    actual_sum = sum(nums)
+    missing_num = expected_sum - actual_sum + duplicate_num
+    
+    return [duplicate_num, missing_num]
+
+
+nums = [1, 2, 2, 4]
+result = findErrorNums(nums)
+print(result) 

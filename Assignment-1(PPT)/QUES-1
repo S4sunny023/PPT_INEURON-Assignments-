@@ -1,0 +1,19 @@
+def twoSum(nums, target):
+    
+    res= {}
+    
+   
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in res:
+            return [res[complement], i]
+        
+        res[num] = i
+    
+    return []
+
+
+nums = [2, 7, 11, 15]
+target = 9
+result = twoSum(nums, target)
+print(result)  
