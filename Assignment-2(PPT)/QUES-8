@@ -1,0 +1,19 @@
+def minScore(nums, k):
+    min_num = float('inf')
+    max_num = float('-inf')
+
+    for num in nums:
+        min_num = min(min_num, num)
+        max_num = max(max_num, num)
+
+    score = max_num - min_num
+
+    if score <= 2 * k:
+        return score
+    else:
+        return score - 2 * k
+
+
+nums = [1]
+k = 0
+print(minScore(nums, k))
