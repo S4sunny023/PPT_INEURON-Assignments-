@@ -1,0 +1,12 @@
+def complete_staircase_rows(n):
+    # Find the maximum value of k such that the sum of the first k natural numbers is less than or equal to n
+    k = 0
+    while (k + 1) * (k + 2) // 2 <= n:
+        k += 1
+
+    return k
+
+
+n = 5
+result = complete_staircase_rows(n)
+print(result)
