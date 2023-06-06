@@ -1,0 +1,25 @@
+def findOriginalArray(changed):
+    if len(changed) % 2 != 0:
+        return []
+
+    freq = {}
+    for num in changed:
+        freq[num] = freq.get(num, 0) + 1
+
+    original_values = []
+    for num in sorted(changed):
+        if freq[num] > 0:
+            if 2 * num in freq and freq[2 * num] > 0:
+                original_values.append(num)
+                freq[num] -= 1
+                freq[2 * num] -= 1
+
+    if len(original_values) != len(changed) // 2:
+        return []
+
+    return original_values
+
+
+
+changed = [1, 3, 4, 2, 6, 8]
+print(findOriginalArray(changed))

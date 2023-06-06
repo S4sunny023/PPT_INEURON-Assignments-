@@ -1,0 +1,19 @@
+def reconstructPermutation(s):
+    n = len(s)
+    perm = []
+    max_num = n
+
+    for ch in s:
+        if ch == 'I':
+            perm.append(n - max_num)
+            max_num -= 1
+        elif ch == 'D':
+            perm.append(n)
+
+    perm.append(max_num)
+
+    return perm
+
+
+s = "IDID"
+print(reconstructPermutation(s))
