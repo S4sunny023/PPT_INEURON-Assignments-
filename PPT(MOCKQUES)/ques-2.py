@@ -1,27 +1,33 @@
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+class Queue:
+    def __init__(self):
+        self.queue = []
 
-def addTwoNumbers(l1, l2):
-    dummy = ListNode(0)
-    curr = dummy
-    p, q = l1, l2
-    carry = 0
+    def enqueue(self, element):
+        self.queue.append(element)
 
-    while p or q or carry:
-        x = p.val if p else 0
-        y = q.val if q else 0
-        total = x + y + carry
+    def dequeue(self):
+        if not self.isEmpty():
+            return self.queue.pop(0)
+        else:
+            return None 
 
-        carry = total // 10
-        curr.next = ListNode(total % 10)
-        curr = curr.next
+    def isEmpty(self):
+        return len(self.queue) == 0
+    
 
-        if p:
-            p = p.next
-        if q:
-            q = q.next
 
-    return dummy.next
+queue = Queue()
+print(queue.isEmpty())  
+
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+
+print(queue.dequeue()) 
+print(queue.dequeue())  
+
+print(queue.isEmpty())  
+print(queue.dequeue())
+print(queue.isEmpty())  
+
 

@@ -1,18 +1,30 @@
-def mySqrt(x):
-    if x == 0 or x == 1:
-        return x
-    
-    left, right = 0, x
-    
-    while left <= right:
-        mid = (left + right) // 2
-        square = mid * mid
-        
-        if square == x:
-            return mid
-        elif square < x:
-            left = mid + 1
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, element):
+        self.stack.append(element)
+
+    def pop(self):
+        if not self.isEmpty():
+            return self.stack.pop()
         else:
-            right = mid - 1
-    
-    return right
+            return None  
+
+    def isEmpty(self):
+        return len(self.stack) == 0
+
+
+stack = Stack()
+print(stack.isEmpty()) 
+
+stack.push(1)
+stack.push(2)
+stack.push(3)
+
+print(stack.pop())  
+print(stack.pop())  
+
+print(stack.isEmpty())  
+print(stack.pop()) 
+print(stack.isEmpty()) 
